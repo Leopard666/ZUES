@@ -31,24 +31,6 @@ spee={};
    });
 
 
-client.on('ready', function(){
-  client.user.setStatus("dnd");
-    var ms = 10000 ;
-    var setGame = ['★ TG | Matrix ★','The Grid™ | Server ' ];
-    var i = -1;
-    var j = 0;
-    setInterval(function (){
-        if( i == -1 ){
-            j = 1;
-        }
-        if( i == (setGame.length)-1 ){
-            j = -1;
-        }
-        i = i+j;
-        client.user.setGame(setGame[i],`https://www.twitch.tv/TheRealPredvkill`);
-    }, ms);
-});
-
 client.on("ready", async  => {
 setInterval(function(){
 client.channels.find('id', '543463470532788274').setName("T");
