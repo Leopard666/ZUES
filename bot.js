@@ -1,30 +1,39 @@
-const { Client, Util } = require('discord.js');
-const Discord = require("discord.js");
-const YouTube = require('simple-youtube-api');
-const ytdl = require('ytdl-core');
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const fs = require("fs");
+const Canvas = require("canvas");
+const jimp = require("jimp");
+const moment = require('moment');
+const yt = require('ytdl-core');
+const prefix = '>'
 
-const client = new Client({ disableEveryone: true });
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(">help | >inv");
+  console.log('')
+  console.log('')
+  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
+  console.log(`[Start] ${new Date()}`);
+  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════════════════════════════]╗');
+  console.log(`Logged in as * [ " ${client.user.username} " ]`);
+  console.log('')
+  console.log('Informations :')
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('╚[════════════════════════════════════]╝')
+  console.log('')
+  console.log('╔[════════════]╗')
+  console.log(' Bot Is Online')
+  console.log('╚[════════════]╝')
+  console.log('')
+  console.log('')
+});
 
 
-const GOOGLE_API_KEY = "AIzaSyCncxr7q-96yc3uRT0Ib2L3aBlSHA9F0_A";
-
-const PREFIX = '+';
-
-
-const youtube = new YouTube(GOOGLE_API_KEY);
-
-const queue = new Map();
-
-
-client.on('warn', console.warn);
-
-client.on('error', console.error);
-
-client.on('ready', () => console.log('Yo Hima its ready Yayyy !'));
-
-client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
-
-client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 client.on("ready", async  => {
 setInterval(function(){
@@ -69,6 +78,63 @@ message.channel.sendEmbed(embed)
 
 }
 });
+
+
+var version = '11.0.0';
+client.on('message', message => {
+if (message.content === prefix+'bot'){
+     if(!message.channel.guild) return message.reply('** This command only for servers**');
+var embed = new Discord.RichEmbed()//تا
+    .setAuthor(client.user.username, client.user.avatarURL)
+.setDescription(`** Ping :** ${Date.now() - message.createdTimestamp}
+ **Servers :** ${client.guilds.size}
+ **Users :** ${client.users.size}
+ **Channels :** ${client.channels.size}
+ **RAM Usage :** ${(process.memoryUsage().rss / 1048576).toFixed()}MB
+ **Discord.js :** v${version}
+ **UpTime :** ${timeCon(process.uptime())}
+ **Node :** ${process.version}`)
+     .setFooter('all copyrights reserved ©',client.user.avatarURL)
+ .setFooter(`Fury Bot`, client.user.avatarURL)
+    message.channel.sendEmbed(embed)
+    console.log('[bot] Send By: ' + message.author.username)
+}
+});
+
+function timeCon(time) {
+    let days = Math.floor(time % 31536000 / 86400)
+    let hours = Math.floor(time % 31536000 % 86400 / 3600)
+    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
+    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
+    days = days > 9 ? days : '0' + days
+    hours = hours > 9 ? hours : '0' + hours
+    minutes = minutes > 9 ? minutes : '0' + minutes
+    seconds = seconds > 9 ? seconds : '0' + seconds
+    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
+}
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "info")) {
+    message.channel.send({
+        embed: new Discord.RichEmbed()
+            .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('RANDOM')
+            .setTitle('``INFO Fury Bot`` ')
+            .addField('``Uptime``', [timeCon(process.uptime())], true)
+            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
+            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
+            .addField('``servers``', [client.guilds.size], true)
+            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
+            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
+            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
+            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
+                  .addField('``My Prefix``' , `>` , true)
+                  .addField('``My Language``' , `[ Java Script ]` , true)
+                  .setFooter('By | iiTzEnd')
+    })
+}
+});
+
 
 client.on('message', message => {
                                 if(!message.channel.guild) return;
