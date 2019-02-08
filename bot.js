@@ -1,6 +1,4 @@
 const Discord = require('discord.js');
-const music = require('discord.js-music-v11');
-
 
 const Util = require('discord.js');
 
