@@ -8,18 +8,12 @@ const client = new Client({ disableEveryone: true });
 
 const GOOGLE_API_KEY = "AIzaSyCncxr7q-96yc3uRT0Ib2L3aBlSHA9F0_A";
 
-const PREFIX = '-';
+const PREFIX = '+';
 
 
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
-client.on('ready', function() {
-	console.log(`Hima it's Ready ${client.user.username}`);
-    client.user.setGame(prefix + 'help || play ');
-	client.user.setStatus("dnd")
-	client.user.setGame(`TheDamNation™ ❘ -Play`,`https://www.twitch.tv/TheRealPredvkill`);
-});
 
 
 client.on('warn', console.warn);
