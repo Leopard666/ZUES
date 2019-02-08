@@ -1,21 +1,36 @@
-const Discord = require('discord.js');
-const Util = require('discord.js');
-const getYoutubeID = require('get-youtube-id');
-const fetchVideoInfo = require('youtube-info');
+const { Client, Util } = require('discord.js');
+const Discord = require("discord.js");
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
-const queue = new Map();
 const ytdl = require('ytdl-core');
-const fs = require('fs');
-const client = new Discord.Client({disableEveryone: true});
-const prefix = "+";
+
+const client = new Client({ disableEveryone: true });
 
 
+const GOOGLE_API_KEY = "AIzaSyCncxr7q-96yc3uRT0Ib2L3aBlSHA9F0_A";
 
- client.on('ready', () => {
- 	console.log('ZEUS IS READY NOW !'); 
-   });
+const PREFIX = '-';
 
+
+const youtube = new YouTube(GOOGLE_API_KEY);
+
+const queue = new Map();
+client.on('ready', function() {
+	console.log(`Hima it's Ready ${client.user.username}`);
+    client.user.setGame(prefix + 'help || play ');
+	client.user.setStatus("dnd")
+	client.user.setGame(`TheDamNation™ ❘ -Play`,`https://www.twitch.tv/TheRealPredvkill`);
+});
+
+
+client.on('warn', console.warn);
+
+client.on('error', console.error);
+
+client.on('ready', () => console.log('Yo Hima its ready Yayyy !'));
+
+client.on('disconnect', () => console.log('I just disconnected, making sure you know, I will reconnect now...'));
+
+client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 client.on("ready", async  => {
 setInterval(function(){
@@ -99,9 +114,5 @@ message.channel.send({embed:embed});
     }
 });
 
-client.on('ready', () => {
-var x = client.channels.get("543463470532788274");
-if (x) x.join();
-});
   
 client.login(process.env.BOT_TOKEN);
