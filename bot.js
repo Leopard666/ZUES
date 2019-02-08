@@ -23,10 +23,12 @@ const client = new Discord.Client();
 const prefix = '+'
 ti={}  
 spee={};
- 
-Bot.on('ZEUS IS READY NOW !', () => {
-    console.log(`[Start] ${new Date()}`);
-});
+
+
+
+ client.on('ready', () => {
+ 	console.log('ZEUS IS READY NOW !'); 
+   });
 
 
 client.on('ready', function(){
@@ -129,7 +131,7 @@ message.channel.send({embed:embed});
     }
 });
 
-client.on('ZEUS IS READY', () => {
+client.on('ready', () => {
 var x = client.channels.get("543463470532788274");
 if (x) x.join();
 });
