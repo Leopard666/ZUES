@@ -1,56 +1,29 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
-const fs = require("fs");
-const Canvas = require("canvas");
+const fs = require('fs');
+const ms = require('ms');
+const canvas = require('canvas-prebuilt');
+const jimp = require('jimp');
+const ytdl = require('ytdl-core');
+const request = require('request');
+const dateFormat = require('dateformat');
+const google = require('google-it');
+const db = require('quick.db');
+const giphy = require('giphy-api')();    
+const googl = require('goo.gl');  
+const translate = require('google-translate-api');   
+const { Client, Util } = require('discord.js');  
+const UserBlocked = new Set(); 
 const moment = require('moment');
-const yt = require('ytdl-core');
-const prefix = '>'
+const pretty = require('pretty-ms'); 
+const zalgo = require('zalgolize');   
+const math = require('math-expression-evaluator'); 
+const stripIndents = require('common-tags').stripIndents;
+const figlet = require('figlet');
+const client = new Discord.Client();
+const prefix = '+'
+ti={}  
+spee={};
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(">help | >inv");
-  console.log('')
-  console.log('')
-  console.log('╔[═════════════════════════════════════════════════════════════════]╗')
-  console.log(`[Start] ${new Date()}`);
-  console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════════════════════════════]╗');
-  console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
-  console.log('Informations :')
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log(`channels! [ " ${client.channels.size} " ]`);
-  console.log('╚[════════════════════════════════════]╝')
-  console.log('')
-  console.log('╔[════════════]╗')
-  console.log(' Bot Is Online')
-  console.log('╚[════════════]╝')
-  console.log('')
-  console.log('')
-});
-
-
-
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find('543463470532788274').setName("T");
-client.channels.find('543463470532788274').setName("TH");
-client.channels.find('543463470532788274').setName("THE");
-client.channels.find('543463470532788274').setName("THE G");
-client.channels.find('543463470532788274').setName("THE GR");
-client.channels.find('543463470532788274').setName("THE GRI");
-client.channels.find('543463470532788274').setName("THE GRID");
-client.channels.find('543463470532788274').setName("THE GRID™");
-client.channels.find('543463470532788274').setName("THE GRID™ 2");
-client.channels.find('543463470532788274').setName("THE GRID™ 20");
-client.channels.find('543463470532788274').setName("THE GRID™ 207");
-client.channels.find('543463470532788274').setName("THE GRID™ 2077");
-
-  }, 60000);
-});
 
 client.on('message', message => {
   var prefix ="+";
@@ -79,7 +52,7 @@ message.channel.sendEmbed(embed)
 });
 
 
-var version = '11.0.0';
+var version = '1.1';
 client.on('message', message => {
 if (message.content === prefix+'bot'){
      if(!message.channel.guild) return message.reply('** This command only for servers**');
@@ -111,14 +84,16 @@ function timeCon(time) {
     seconds = seconds > 9 ? seconds : '0' + seconds
     return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
 }
+var version = '1.9';
 client.on('message', message => {
-    if (message.content.startsWith(prefix + "info")) {
+    if (message.content.startsWith(prefix + "stats")) {
+if(message.author.id !== "480540559233122324") return message.reply('**❎ | You aren\'t The Bot Owner !**');
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO Fury Bot`` ')
+            .setTitle('``ZEUS STATS`` ')
             .addField('``Uptime``', [timeCon(process.uptime())], true)
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
@@ -127,9 +102,10 @@ client.on('message', message => {
             .addField('``Users``' ,`[ ${client.users.size} ]` , true)
             .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
             .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-                  .addField('``My Prefix``' , `>` , true)
+            .addField('``Node``' , `[${process.version} ]` , true)
+                  .addField('``My Prefix``' , `+` , true)
                   .addField('``My Language``' , `[ Java Script ]` , true)
-                  .setFooter('By | iiTzEnd')
+                  .setFooter('By | TheRareRanger')
     })
 }
 });
@@ -173,5 +149,22 @@ message.channel.send({embed:embed});
     }
 });
 
+client.on("ready", async  => {
+setInterval(function(){
+client.channels.find('543463470532788274').setName("T");
+client.channels.find('543463470532788274').setName("TH");
+client.channels.find('543463470532788274').setName("THE");
+client.channels.find('543463470532788274').setName("THE G");
+client.channels.find('543463470532788274').setName("THE GR");
+client.channels.find('543463470532788274').setName("THE GRI");
+client.channels.find('543463470532788274').setName("THE GRID");
+client.channels.find('543463470532788274').setName("THE GRID™");
+client.channels.find('543463470532788274').setName("THE GRID™ 2");
+client.channels.find('543463470532788274').setName("THE GRID™ 20");
+client.channels.find('543463470532788274').setName("THE GRID™ 207");
+client.channels.find('543463470532788274').setName("THE GRID™ 2077");
+
+  }, 60000);
+});
   
 client.login(process.env.BOT_TOKEN);
