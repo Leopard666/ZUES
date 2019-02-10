@@ -43,19 +43,19 @@ spee={};
 });
 
 client.on("ready", async  => {
-setInterval(function(){
-ch.get("533826952088387584").setName("T");
-ch.get("533826952088387584").setName("TH");
-ch.get("533826952088387584").setName("THE");
-ch.get("533826952088387584").setName("THE G");
-ch.get("533826952088387584").setName("THE GR");
-ch.get("533826952088387584").setName("THE GRI");
-ch.get("533826952088387584").setName("THE GRID");
-ch.get("533826952088387584").setName("THE GRID™");
-ch.get("533826952088387584").setName("THE GRID™ 2");
-ch.get("533826952088387584").setName("THE GRID™ 20");
-ch.get("533826952088387584").setName("THE GRID™ 207");
-ch.get("533826952088387584").setName("THE GRID™ 2077");
+  client.setInterval(async function(){
+client.channels.get("543463470532788274").setName("T");
+client.channels.get("543463470532788274").setName("TH");
+client.channels.get("543463470532788274").setName("THE");
+client.channels.get("543463470532788274").setName("THE G");
+client.channels.get("543463470532788274").setName("THE GR");
+client.channels.get("543463470532788274").setName("THE GRI");
+client.channels.get("543463470532788274").setName("THE GRID");
+client.channels.get("543463470532788274").setName("THE GRID™");
+client.channels.get("543463470532788274").setName("THE GRID™ 2");
+client.channels.get("533826952088387584").setName("THE GRID™ 20");
+client.channels.get("543463470532788274").setName("THE GRID™ 207");
+client.channels.get("543463470532788274").setName("THE GRID™ 2077");
 
   }, 60000);
 });
