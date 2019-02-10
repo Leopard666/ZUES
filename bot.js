@@ -52,10 +52,6 @@ client.channels.get("543463470532788274").setName(`THE GR`);
 client.channels.get("543463470532788274").setName(`THE GRI`);
 client.channels.get("543463470532788274").setName(`THE GRID`);
 client.channels.get("543463470532788274").setName(`THE GRID™`);
-client.channels.get("543463470532788274").setName(`THE GRID™ 2`);
-client.channels.get("533826952088387584").setName(`THE GRID™ 20`);
-client.channels.get("543463470532788274").setName(`THE GRID™ 207`);
-client.channels.get("543463470532788274").setName(`THE GRID™ 2077`);
 
   }, 50000);
 });
