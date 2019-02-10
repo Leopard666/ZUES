@@ -24,6 +24,26 @@ const prefix = '+'
 ti={}  
 spee={};
 
+   });
+
+  client.on('ready', function(){
+  client.user.setStatus("dnd");
+    var ms = 10000 ;
+    var setActivity = ['★ TG | Matrix ★','The Grid™ | Server ' ];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setActivity.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setActivity[i],`https://www.twitch.tv/TheRealPredvkill`);
+    }, ms);
+});
+
 
 client.on('message', message => {
   var prefix ="+";
@@ -54,8 +74,8 @@ message.channel.sendEmbed(embed)
 
 var version = '1.1';
 client.on('message', message => {
-if (message.content === prefix+'bot'){
-     if(!message.channel.guild) return message.reply('** This command only for servers**');
+if (message.content === prefix+'zeus'){
+     if(!message.channel.guild) return message.reply('**:x: This Command Only For Servers :x:**');
 var embed = new Discord.RichEmbed()//تا
     .setAuthor(client.user.username, client.user.avatarURL)
 .setDescription(`** Ping :** ${Date.now() - message.createdTimestamp}
@@ -84,7 +104,7 @@ function timeCon(time) {
     seconds = seconds > 9 ? seconds : '0' + seconds
     return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
 }
-var version = '1.9';
+var version = '1.1';
 client.on('message', message => {
     if (message.content.startsWith(prefix + "stats")) {
 if(message.author.id !== "480540559233122324") return message.reply('**❎ | You aren\'t The Bot Owner !**');
@@ -111,23 +131,6 @@ if(message.author.id !== "480540559233122324") return message.reply('**❎ | You
 });
 
 
-client.on('message', message => {
-                                if(!message.channel.guild) return;
-                        if (message.content.startsWith('+ping')) {
-                        if(message.author.id !== "480540559233122324") return message.reply('**❎ | You aren\'t The Bot Owner !**');
-                            if(!message.channel.guild) return;
-                            var msg = `${Date.now() - message.createdTimestamp}`
-                            var api = `${Math.round(client.ping)}`
-                            if (message.author.bot) return;
-                        let embed = new Discord.RichEmbed()
-                        .setAuthor(message.author.username,message.author.avatarURL)
-                        .setThumbnail('https://cdn.discordapp.com/avatars/368141321547808768/c42716e13cb850f9ad0930af699472d0.png?size=2048nk')
-                        .setColor('#8258FA')
-                        .addField('**Ping:**',msg + " ms")
-message.channel.send({embed:embed});
-                        }
-                    });
-
 
   client.on('message',async message => {
     if(message.content.startsWith(prefix + "restart")) {
@@ -151,18 +154,18 @@ message.channel.send({embed:embed});
 
 client.on("ready", async  => {
 setInterval(function(){
-client.channels.find('543463470532788274').setName("T");
-client.channels.find('543463470532788274').setName("TH");
-client.channels.find('543463470532788274').setName("THE");
-client.channels.find('543463470532788274').setName("THE G");
-client.channels.find('543463470532788274').setName("THE GR");
-client.channels.find('543463470532788274').setName("THE GRI");
-client.channels.find('543463470532788274').setName("THE GRID");
-client.channels.find('543463470532788274').setName("THE GRID™");
-client.channels.find('543463470532788274').setName("THE GRID™ 2");
-client.channels.find('543463470532788274').setName("THE GRID™ 20");
-client.channels.find('543463470532788274').setName("THE GRID™ 207");
-client.channels.find('543463470532788274').setName("THE GRID™ 2077");
+client.channels.find(x => x.name === '2077').setName("T");
+client.channels.find(x => x.name === '2077').setName("TH");
+client.channels.find(x => x.name === '2077').setName("THE");
+client.channels.find(x => x.name === '2077').setName("THE G");
+client.channels.find(x => x.name === '2077').setName("THE GR");
+client.channels.find(x => x.name === '2077').setName("THE GRI");
+client.channels.find(x => x.name === '2077').setName("THE GRID");
+client.channels.find(x => x.name === '2077').setName("THE GRID™");
+client.channels.find(x => x.name === '2077').setName("THE GRID™ 2");
+client.channels.find(x => x.name === '2077').setName("THE GRID™ 20");
+client.channels.find(x => x.name === '2077').setName("THE GRID™ 207");
+client.channels.find(x => x.name === '2077').setName("THE GRID™ 2077");
 
   }, 60000);
 });
