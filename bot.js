@@ -24,8 +24,6 @@ const prefix = '+'
 ti={}  
 spee={};
 
-   });
-
   client.on('ready', function(){
   client.user.setStatus("dnd");
     var ms = 10000 ;
@@ -168,22 +166,5 @@ if(message.author.id !== "480540559233122324") return message.reply('**❎ | You
     }
 });
 
-client.on("ready", async  => {
-setInterval(function(){
-client.channels.find(x => x.name === '2077').setName("T");
-client.channels.find(x => x.name === '2077').setName("TH");
-client.channels.find(x => x.name === '2077').setName("THE");
-client.channels.find(x => x.name === '2077').setName("THE G");
-client.channels.find(x => x.name === '2077').setName("THE GR");
-client.channels.find(x => x.name === '2077').setName("THE GRI");
-client.channels.find(x => x.name === '2077').setName("THE GRID");
-client.channels.find(x => x.name === '2077').setName("THE GRID™");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 2");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 20");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 207");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 2077");
-
-  }, 60000);
-});
   
 client.login(process.env.BOT_TOKEN);
