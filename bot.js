@@ -43,7 +43,7 @@ spee={};
 });
 
 client.on("ready", async  => {
-  client.setInterval(async function(){
+  client.setInterval(async){
 client.channels.get("543463470532788274").setName("T");
 client.channels.get("543463470532788274").setName("TH");
 client.channels.get("543463470532788274").setName("THE");
