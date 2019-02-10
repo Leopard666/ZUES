@@ -44,18 +44,18 @@ spee={};
 
 client.on("ready", async  => {
 setInterval(function(){
-client.channels.find(x => x.name === '2077').setName("T");
-client.channels.find(x => x.name === '2077').setName("TH");
-client.channels.find(x => x.name === '2077').setName("THE");
-client.channels.find(x => x.name === '2077').setName("THE G");
-client.channels.find(x => x.name === '2077').setName("THE GR");
-client.channels.find(x => x.name === '2077').setName("THE GRI");
-client.channels.find(x => x.name === '2077').setName("THE GRID");
-client.channels.find(x => x.name === '2077').setName("THE GRID™");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 2");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 20");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 207");
-client.channels.find(x => x.name === '2077').setName("THE GRID™ 2077");
+ch.get("533826952088387584").setName("T");
+ch.get("533826952088387584").setName("TH");
+ch.get("533826952088387584").setName("THE");
+ch.get("533826952088387584").setName("THE G");
+ch.get("533826952088387584").setName("THE GR");
+ch.get("533826952088387584").setName("THE GRI");
+ch.get("533826952088387584").setName("THE GRID");
+ch.get("533826952088387584").setName("THE GRID™");
+ch.get("533826952088387584").setName("THE GRID™ 2");
+ch.get("533826952088387584").setName("THE GRID™ 20");
+ch.get("533826952088387584").setName("THE GRID™ 207");
+ch.get("533826952088387584").setName("THE GRID™ 2077");
 
   }, 60000);
 });
