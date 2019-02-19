@@ -73,7 +73,7 @@ client.channels.get("543463470532788274").setName(`THE GRID™`);
 client.on('message', message => {
   var prefix ="+";
 if(message.content.startsWith(prefix +"server")){
-if(message.author.id !== "480540559233122324") return message.reply('**❎ | You aren\'t The Bot Owner !**');
+if(message.author.id !== "480540559233122324") return message.reply('**❎ | You Aren\'t The Bot Owner !**');
 if(!message.channel.guild) return message.reply(' ');
 const millis = new Date().getTime() - message.guild.createdAt.getTime();
 const now = new Date();
@@ -132,7 +132,7 @@ function timeCon(time) {
 var version = '1.1';
 client.on('message', message => {
     if (message.content.startsWith(prefix + "stats")) {
-if(message.author.id !== "480540559233122324") return message.reply('**❎ | You aren\'t The Bot Owner !**');
+if(message.author.id !== "480540559233122324") return message.reply('**❎ | You Aren\'t The Bot Owner !**');
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
@@ -156,25 +156,26 @@ if(message.author.id !== "480540559233122324") return message.reply('**❎ | You
 });
 
 
-  client.on('message',async message => {
+client.on('message',async message => {
     if(message.content.startsWith(prefix + "restart")) {
-        if(message.author.id !== "480540559233122324") return message.reply('**❎ | You aren\'t The Bot Owner !**');
+        if(message.author.id !== "480540559233122324") return message.reply('**❎ | You Aren\'t The Bot Owner !**');
         message.channel.send('**Restarting.**').then(msg => {
             setTimeout(() => {
-               msg.edit('**:arrows_counterclockwise: ZEUS Restarting..**');
+               msg.edit('**:arrows_counterclockwise: Zeus Restarting..**');
             },1000);
             setTimeout(() => {
-               msg.edit('**:arrows_counterclockwise: ZEUS Restarting...**');
+               msg.edit('**:arrows_counterclockwise: Zeus Restarting...**');
             },2000);
         });
-        console.log(`${message.author.tag} [ ${message.author.id} ] C.L.U Has Restarted Successfully.`);
+        console.log(`${message.author.tag} [ ${message.author.id} ] Jarvis Has Restarted Successfully.`);
         console.log(`Restarting..`);
         setTimeout(() => {
             client.destroy();
-            client.login('process.env.BOT_TOKEN');
+            client.login(process.env.BOT_TOKEN);
         },3000);
     }
-});
+})
+
 
   
 client.login(process.env.BOT_TOKEN);
