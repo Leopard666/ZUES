@@ -120,6 +120,31 @@ var embed = new Discord.RichEmbed()//تا
 }
 });
 
+
+client.on('message',async message => {
+  if(message.content.startsWith(prefix + "setdate")) {
+      var currentTime = new Date(),
+      years = currentTime.getFullYear(),
+      month = currentTime.getMonth() + 1,
+      day = currentTime.getDate(),
+      week = currentTime.getDay();
+  if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **YOU DONT HAVE MANAGE CHANNELS ROLE** :x:');
+  if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **THIS BOT DOSENT HAVE MANAGE CHANNELS ROLE** :x:');
+  message.channel.send(' ``✅ | DONE ! : WE CREATED CHANNEL VOICE WITH DATE COUNT !`` ');
+  message.guild.createChannel("📅 - Date " + "「" + day + "-" + month + "-" + years + "」" , 'voice').then(c => {
+    console.log(`Date channel setup for guild: \n ${message.guild.name}`);
+    c.overwritePermissions(message.guild.id, {
+      CONNECT: false,
+      SPEAK: false
+    });
+    setInterval(function() {
+      c.setName("Date : " + "「" + day + "-" + month + "-" + years + "」")
+    },1000);
+  });
+  }
+});
+
+
 function timeCon(time) {
     let days = Math.floor(time % 31536000 / 86400)
     let hours = Math.floor(time % 31536000 % 86400 / 3600)
@@ -179,5 +204,4 @@ client.on('message',async message => {
 })
 
 
-  
 client.login(process.env.BOT_TOKEN);
