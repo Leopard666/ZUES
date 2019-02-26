@@ -116,7 +116,7 @@ It must be your lucky day :smile: `)
 });
 
 client.on('ready', function(){
-client.channels.get("542905235241304065").send("$ZUES IS BACK ONLINE NOW").then(m => m.delete(500));
+client.channels.get("542905235241304065").send("+ZUES IS BACK ONLINE NOW").then(m => m.delete(500));
 		   
  });
 
