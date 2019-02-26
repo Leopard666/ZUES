@@ -117,7 +117,7 @@ client.on('message', message => {
                   .setFooter('❖══ ● 🔰 [ THE GRID™ - OFFICIAL ] 🔰 ● ══❖')
 	          .setTimestamp()
 	          .setDescription(` **● Attention [The Grid™] Users 
-[QUORRA] Has Returned From The Darkness Aka Back Online
+[ZUES] Has Returned From The Darkness Aka Back Online
 It Must Be Your Lucky Day ! ●** `)
 
     })
