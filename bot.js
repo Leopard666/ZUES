@@ -52,28 +52,29 @@ client.on('ready', function(){//npm i ms
 
 client.on("ready", async  => {
 client.setInterval(async function(){
-client.channels.get("543463470532788274").setName(`T`);
-client.channels.get("543463470532788274").setName(`TH`);
-client.channels.get("543463470532788274").setName(`THE`);
-client.channels.get("543463470532788274").setName(`THE G`);
-client.channels.get("543463470532788274").setName(`THE GR`);
-client.channels.get("543463470532788274").setName(`THE GRI`);
-client.channels.get("543463470532788274").setName(`THE GRID`);
-client.channels.get("543463470532788274").setName(`THE GRID™`);
-client.channels.get("543463470532788274").setName(`THE GRID`);
-client.channels.get("543463470532788274").setName(`THE GRI`);
-client.channels.get("543463470532788274").setName(`THE GR`);
-client.channels.get("543463470532788274").setName(`THE G`);
-client.channels.get("543463470532788274").setName(`THE`);
-client.channels.get("543463470532788274").setName(`TH`);
-client.channels.get("543463470532788274").setName(`T`);
-client.channels.get("543463470532788274").setName(`TH`);
-client.channels.get("543463470532788274").setName(`THE`);
-client.channels.get("543463470532788274").setName(`THE G`);
-client.channels.get("543463470532788274").setName(`THE GR`);
-client.channels.get("543463470532788274").setName(`THE GRI`);
-client.channels.get("543463470532788274").setName(`THE GRID`);
-client.channels.get("543463470532788274").setName(`THE GRID™`);
+client.channels.get("543463470532788274").setName(`「`);
+client.channels.get("543463470532788274").setName(`「T`);
+client.channels.get("543463470532788274").setName(`「TH`);
+client.channels.get("543463470532788274").setName(`「THE`);
+client.channels.get("543463470532788274").setName(`「THE G`);
+client.channels.get("543463470532788274").setName(`「THE GR`);
+client.channels.get("543463470532788274").setName(`「THE GRI`);
+client.channels.get("543463470532788274").setName(`「THE GRID`);
+client.channels.get("543463470532788274").setName(`「THE GRID™」`);
+client.channels.get("543463470532788274").setName(`「THE GRID`);
+client.channels.get("543463470532788274").setName(`「THE GRI`);
+client.channels.get("543463470532788274").setName(`「THE GR`);
+client.channels.get("543463470532788274").setName(`「THE G`);
+client.channels.get("543463470532788274").setName(`「THE`);
+client.channels.get("543463470532788274").setName(`「TH`);
+client.channels.get("543463470532788274").setName(`「T`);
+client.channels.get("543463470532788274").setName(`「TH`);
+client.channels.get("543463470532788274").setName(`「THE`);
+client.channels.get("543463470532788274").setName(`「THE G`);
+client.channels.get("543463470532788274").setName(`「THE GR`);
+client.channels.get("543463470532788274").setName(`「THE GRI`);
+client.channels.get("543463470532788274").setName(`「THE GRID`);
+client.channels.get("543463470532788274").setName(`「THE GRID™」`);
 
   }, 20000);
 });
