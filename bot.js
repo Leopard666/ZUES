@@ -211,6 +211,7 @@ client.on('message', message => {
 if (message.content === prefix+'zeus'){
      if(!message.channel.guild) return message.reply('**:x: This Command Only For Servers :x:**');
 var embed = new Discord.RichEmbed()
+.setThumbnail(client.user.avatarURL)
 .setAuthor(client.user.username, client.user.avatarURL)
 .setDescription(`** Ping :** ${Date.now() - message.createdTimestamp}
  **Servers :** ${client.guilds.size}
@@ -220,9 +221,8 @@ var embed = new Discord.RichEmbed()
  **Discord.js :** v${version}
  **UpTime :** ${timeCon(process.uptime())}
  **Node :** ${process.version}`)
-.setFooter('🔰 TG™ All Copyrights Reserved - 2019© 🔰',client.user.avatarURL)
 .setTimestamp()
-.setFooter(`Zeus - Bot`, client.user.avatarURL)
+.setFooter(`🔰 THE GRID™ - 2019© 🔰`, client.user.avatarURL)
     message.channel.sendEmbed(embed)
     console.log('[Bot] Send By: ' + message.author.username)
 }
