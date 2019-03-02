@@ -187,14 +187,18 @@ const days = millis / 1000 / 60 / 60 / 24;
 let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
 var embed  = new Discord.RichEmbed()
 .setAuthor(message.guild.name, message.guild.iconURL)
-.addField("**🆔 Server ID:**", message.guild.id,true)
-.addField("**📅 Created On**", message.guild.createdAt.toLocaleString(),true)
-.addField("**👑 Owned by**",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
-.addField("👥 Members ",`[${message.guild.memberCount}]`,true)
-.addField('**💬 Channels **',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
-.addField("**🌍 Others **" , message.guild.region,true)
-.addField("** 🔐 Roles **",`**[${message.guild.roles.size}]** Role `,true)
-.setColor('#000000')
+.setThumbnail(client.user.avatarURL)
+.addField('**:robot: Bot Version** :' , `[ v1.1 ]`, true)
+.addField("**🆔 Server ID** :", message.guild.id,true)
+.addField("**📅 Created On** :", message.guild.createdAt.toLocaleString(),true)
+.addField("**👑 Owned By** :",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
+.addField("**👥 Members** :",`[${message.guild.memberCount}]`,true)
+.addField('**💬 Channels** :',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
+.addField("**🌍 Others** :" , message.guild.region,true)
+.addField("**🔐 Roles** :",`**[${message.guild.roles.size}]** Role `,true)
+.setColor('RANDOM')
+.setFooter('🔰 [ THE GRID™ - OFFICIAL ] 🔰')
+.setTimestamp()
 message.channel.sendEmbed(embed)
 
 }
@@ -206,8 +210,8 @@ var version = '1.1';
 client.on('message', message => {
 if (message.content === prefix+'zeus'){
      if(!message.channel.guild) return message.reply('**:x: This Command Only For Servers :x:**');
-var embed = new Discord.RichEmbed()//تا
-    .setAuthor(client.user.username, client.user.avatarURL)
+var embed = new Discord.RichEmbed()
+.setAuthor(client.user.username, client.user.avatarURL)
 .setDescription(`** Ping :** ${Date.now() - message.createdTimestamp}
  **Servers :** ${client.guilds.size}
  **Users :** ${client.users.size}
@@ -216,10 +220,11 @@ var embed = new Discord.RichEmbed()//تا
  **Discord.js :** v${version}
  **UpTime :** ${timeCon(process.uptime())}
  **Node :** ${process.version}`)
-     .setFooter('all copyrights reserved ©',client.user.avatarURL)
- .setFooter(`Fury Bot`, client.user.avatarURL)
+.setFooter('🔰 TG™ All Copyrights Reserved - 2019© 🔰',client.user.avatarURL)
+.setTimestamp()
+.setFooter(`Zeus - Bot`, client.user.avatarURL)
     message.channel.sendEmbed(embed)
-    console.log('[bot] Send By: ' + message.author.username)
+    console.log('[Bot] Send By: ' + message.author.username)
 }
 });
 
@@ -234,7 +239,7 @@ client.on('message',async message => {
       week = currentTime.getDay();
   if(!message.guild.member(message.author).hasPermissions('MANAGE_CHANNELS')) return message.reply(':x: **YOU DONT HAVE MANAGE CHANNELS ROLE** :x:');
   if(!message.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS','MANAGE_ROLES_OR_PERMISSIONS'])) return message.reply(':x: **THIS BOT DOSENT HAVE MANAGE CHANNELS ROLE** :x:');
-  message.channel.send(' ``✅ | DONE ! : WE CREATED CHANNEL VOICE WITH DATE COUNT !`` ');
+  message.channel.send(' ✅ | DONE ! : ``WE CREATED CHANNEL VOICE WITH DATE COUNT !`` ');
   message.guild.createChannel("📅 - Date " + "「" + day + "-" + month + "-" + years + "」" , 'voice').then(c => {
     console.log(`Date channel setup for guild: \n ${message.guild.name}`);
     c.overwritePermissions(message.guild.id, {
@@ -250,54 +255,15 @@ client.on('message',async message => {
 
 // ==================================================================
 
-function timeCon(time) {
-    let days = Math.floor(time % 31536000 / 86400)
-    let hours = Math.floor(time % 31536000 % 86400 / 3600)
-    let minutes = Math.floor(time % 31536000 % 86400 % 3600 / 60)
-    let seconds = Math.round(time % 31536000 % 86400 % 3600 % 60)
-    days = days > 9 ? days : '0' + days
-    hours = hours > 9 ? hours : '0' + hours
-    minutes = minutes > 9 ? minutes : '0' + minutes
-    seconds = seconds > 9 ? seconds : '0' + seconds
-    return `${days > 0 ? `${days}:` : ''}${(hours || days) > 0 ? `${hours}:` : ''}${minutes}:${seconds}`
-}
-var version = '1.1';
-client.on('message', message => {
-    if (message.content.startsWith(prefix + "stats")) {
-if(message.author.id !== "480540559233122324") return message.reply('**❎ | You Aren\'t The Bot Owner !**');
-    message.channel.send({
-        embed: new Discord.RichEmbed()
-            .setAuthor(client.user.username,client.user.avatarURL)
-            .setThumbnail(client.user.avatarURL)
-            .setColor('RANDOM')
-            .setTitle('``ZEUS STATS`` ')
-            .addField('``Uptime``', [timeCon(process.uptime())], true)
-            .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
-            .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
-            .addField('``servers``', [client.guilds.size], true)
-            .addField('``channels``' , `[ ${client.channels.size} ]` , true)
-            .addField('``Users``' ,`[ ${client.users.size} ]` , true)
-            .addField('``My Name``' , `[ ${client.user.tag} ]` , true)
-            .addField('``My ID``' , `[ ${client.user.id} ]` , true)
-            .addField('``Node``' , `[${process.version} ]` , true)
-                  .addField('``My Prefix``' , `+` , true)
-                  .addField('``My Language``' , `[ Java Script ]` , true)
-                  .setFooter('By | TheRareRanger')
-    })
-}
-});
-
-// ==================================================================
-
 client.on('message',async message => {
     if(message.content.startsWith(prefix + "restart")) {
         if(message.author.id !== "480540559233122324") return message.reply('**❎ | You Aren\'t The Bot Owner !**');
         message.channel.send('**Restarting.**').then(msg => {
             setTimeout(() => {
-               msg.edit('**:arrows_counterclockwise: Zeus Restarting..**');
+               msg.edit('**:arrows_counterclockwise: Zeus Is Restarting Now..**').then(m => m.delete(5000));
             },1000);
             setTimeout(() => {
-               msg.edit('**:arrows_counterclockwise: Zeus Restarting...**');
+               msg.edit('**:arrows_counterclockwise: Zeus Is Restarting Now...**').then(m => m.delete(5000));
             },2000);
         });
         console.log(`${message.author.tag} [ ${message.author.id} ] Zeus Has Restarted Successfully.`);
