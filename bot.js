@@ -331,13 +331,15 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if (oldStatus === 'online' && newStatus === 'offline') {
-      timeSinceOffline = Date.now();
+    if ((oldStatus !== 'online') && newStatus === 'offline') {
+      if (timeSinceOffline) {
+        let offlineTime = Date.now() - timeSinceOffline;
         messageChannel.send({
 	         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('dc322f')
+            .addField('``It Has Been Offline For :``' , `[ ${displayTime(offlineTime)} ]` , true)
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
             .setTitle('**:robot: [C.L.U] IS OFFLINE NOW :robot:** ')
