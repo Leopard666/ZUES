@@ -359,6 +359,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
    })
       } 
     }
+  }  
 });
 
 client.on('guildMemberUpdate', (oldMember, newMember) => {
