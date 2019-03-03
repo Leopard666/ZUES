@@ -331,27 +331,26 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if ((oldStatus !== 'online') && newStatus === 'offline') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;
+    if ((oldStatus == 'dnd') && newStatus === 'offline') {
+      timeSinceOffline = Date.now();
         messageChannel.send({
-	         embed: new Discord.RichEmbed()
+	     embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('dc322f')
-            .addField('``It Has Been Offline For :``' , `[ ${displayTime(offlineTime)} ]` , true)
+            .addField('``It Has Been Offline For :``' , `**[ ${displayTime(offlineTime)} ]**` , true)
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
-            .setTitle('**:robot: [C.L.U] IS OFFLINE NOW :robot:** ')
+            .setTitle('**:robot: [RINZLER] IS OFFLINE NOW :robot:** ')
 	    .setDescription(`
 
-● Attention [The Grid™] Bot Users [C.L.U] Has Gone : **Offline** ●
+● Attention [The Grid™] Bot Users [RINZLER] Has Gone : **Offline** ●
 
-● If the bot has gone unexpected offline, it could be 1 of the following errors :
+● If The Bot Has Gone Unexpected Offline, It Could Be 1 Of The Following Errors :
 
-● 1. A Bot/Server Crash
-● 2. Discord has issues (check if other bots are online or offline)
-● 3. Discord deleted the the bot tokens (owner will fix asap)
+● 1. A Bot/Server Crash.
+● 2. Discord has issues (check if other bots are online or offline).
+● 3. Discord deleted the the bot tokens (owner will fix asap).
 
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
 ● In the meantime I have notified "The Rare Ranger" that the bot has gone offline.`)    
