@@ -1,4 +1,8 @@
-// THIS BOT [ZUES] CREATED BY THE RARER RARE RANGER - 2018 - 2019©
+// ==================================================================
+
+ // THIS BOT [ZUES] CREATED BY [THE RARE RANGER] - 2019© //
+////////////// 🔰 THE DAMNATION™ & THE GRID™ 🔰 //////////////
+
 // ==================================================================
 
 const Discord = require('discord.js');
@@ -79,7 +83,6 @@ client.channels.get("543463470532788274").setName(`「THE GRID™」`);
   }, 20000);
 });
 
-
 // ================================================================
 
 client.on('guildCreate', guild => {
@@ -144,6 +147,8 @@ It Must Be Your Lucky Day ! ● ** `)
     })
 }
 });
+
+// ==================================================================
 
 client.on('ready', function(){
 client.channels.get("542905235241304065").send("+ZUES IS BACK ONLINE NOW").then(m => m.delete(500));
@@ -299,3 +304,10 @@ client.on('message',async message => {
 // ==================================================================
 
 client.login(process.env.BOT_TOKEN);
+
+// ==================================================================
+
+ // THIS BOT [ZUES] CREATED BY [THE RARE RANGER] - 2019© //
+////////////// 🔰 THE DAMNATION™ & THE GRID™ 🔰 //////////////
+
+// ==================================================================
