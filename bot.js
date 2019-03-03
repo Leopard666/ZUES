@@ -348,13 +348,19 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 	    .setTimestamp()
             .setTitle('**:robot: [C.L.U] IS OFFLINE NOW :robot:** ')
 	    .setDescription(`
+
 ● Attention [The Grid™] Bot Users [C.L.U] Has Gone : **Offline** ●
+
 ● If the bot has gone unexpected offline, it could be 1 of the following errors :
-● 1. A Bot/Server Crash or New Updated 
+
+● 1. A Bot/Server Crash
 ● 2. Discord has issues (check if other bots are online or offline)
 ● 3. Discord deleted the the bot tokens (owner will fix asap)
+
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
-● In the meantime I have notified "The Rare Ranger" that the bot has gone offline.`)     
+● In the meantime I have notified "The Rare Ranger" that the bot has gone offline.`)    
+		
+   })
       } 
     }
   }
