@@ -333,12 +333,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
     if (oldStatus === 'online' && newStatus === 'offline') {
       timeSinceOffline = Date.now();
-      messageChannel.send(`The bot ${listenBot} has gone offline.`);
-    }
-    // Bot could change from 'offline' to 'dnd'.
-    if ((oldStatus !== 'online') && newStatus === 'online') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;
         messageChannel.send({
 	         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
