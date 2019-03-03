@@ -79,7 +79,26 @@ client.channels.get("543463470532788274").setName(`「THE GRID™」`);
   }, 20000);
 });
 
-// ==================================================================
+
+// ================================================================
+
+client.on('guildCreate', guild => {
+    var embed = new Discord.RichEmbed()
+    .setThumbnail(client.user.avatarURL)
+    .setColor('RANDOM')
+    .setDescription(`:heart: **شكراً لك لإضافه البوت الى سيرفرك** :heart:`)
+    .addField('**Bot Version** :robot: :' , `[ v1.1 ]`)
+    .addField('**Bot CMD** 🔮 :' , `Use +help For Bot Commands`)
+    .addField('**Bot Owner** 👑 :' , `[<@480540559233122324>]`)
+    .addField('**Bot Name** 🔰 :' , `[ ${client.user.tag} ]`)
+    .setFooter('🔰 [ THE GRID™ - OFFICIAL ] 🔰')
+    .setTimestamp()
+        guild.owner.send(embed)
+  });
+
+// ================================================================
+
+
 
 function timeCon(time) {
     let days = Math.floor(time % 31536000 / 86400)
@@ -189,7 +208,6 @@ const verificationLevels = ['None', 'Low', 'Medium', 'Insane', 'Extreme'];
 const days = millis / 1000 / 60 / 60 / 24;
 let roles = client.guilds.get(message.guild.id).roles.map(r => r.name);
 var embed  = new Discord.RichEmbed()
-.setAuthor(message.guild.name, message.guild.iconURL)
 .setThumbnail(client.user.avatarURL)
 .addField('**:robot: Bot Version** :' , `[ v1.1 ]`, true)
 .addField("**🆔 Server ID** :", message.guild.id,true)
