@@ -335,7 +335,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
       timeSinceOffline = Date.now();
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
-            .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('dc322f')
             .addField('``It Has Been Offline For :``' , `**[ ${displayTime(offlineTime)} ]**` , true)
@@ -344,7 +343,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
             .setTitle('**:robot: [RINZLER] IS OFFLINE NOW :robot:** ')
 	    .setDescription(`
 
-● Attention [The Grid™] Bot Users [RINZLER] Has Gone : **Offline** ●
+● Attention [THE GRID™] Bot Users [RINZLER] Has Gone : **Offline** ●
 
 ● If The Bot Has Gone Unexpected Offline, It Could Be 1 Of The Following Errors :
 
@@ -353,12 +352,11 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 ● 3. Discord deleted the the bot tokens (owner will fix asap).
 
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
-● In the meantime I have notified "The Rare Ranger" that the bot has gone offline.`)    
+● In the meantime I have notified ["The Rare Ranger"] that the bot has gone offline.`)    
 		
    })
       } 
-    }
-  }  
+    } 
 });
 
 client.on('guildMemberUpdate', (oldMember, newMember) => {
