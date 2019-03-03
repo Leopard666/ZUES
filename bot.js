@@ -332,12 +332,13 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let newStatus = newMember.presence.status;
 
     if ((oldStatus == 'dnd') && newStatus === 'offline') {
-      timeSinceOffline = Date.now();
+      timeSinceOffline = Date.now();		
+messageChannel.send(`**The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ].**`).then(m => m.delete(60000));
+	    } else {
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
             .setThumbnail(client.user.avatarURL)
             .setColor('dc322f')
-            .addField('``It Has Been Offline For :``' , `**[ ${displayTime(offlineTime)} ]**` , true)
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
             .setTitle('**:robot: [RINZLER] IS OFFLINE NOW :robot:** ')
@@ -353,7 +354,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
 ● In the meantime I have notified ["The Rare Ranger"] that the bot has gone offline.`)    
-		
+					    
    })
       } 
     } 
