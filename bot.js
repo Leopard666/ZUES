@@ -331,9 +331,11 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if (oldStatus == 'offline' && newStatus === 'offline') {
+    if (oldStatus == 'dnd' && newStatus === 'offline') {
+	    
 messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ] :robot:**`);
 	    } else {
+		    
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
 	    .setAuthor(client.user.username,client.user.avatarURL)
@@ -344,7 +346,7 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
             .setTitle('**● :robot: [RINZLER] IS OFFLINE NOW !** ')
 	    .setDescription(`
 
-● Attention **[ THE GRID™ ]** Bot Users **[ RINZLER ]** Has Gone : **[ Offline ]** 
+● Attention **[ THE GRID™ ]** Bot Users **[ RINZLER ]** Has Gone : **[ Offline ] For Now !** 
 
 ● If The Bot Has Gone Unexpected Offline, It Could Be 1 Of The Following Errors :
 
