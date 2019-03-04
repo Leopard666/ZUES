@@ -331,8 +331,9 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if ((oldStatus == 'dnd') && newStatus === 'offline') {
-      timeSinceOffline = Date.now();		
+    if ((oldStatus !== 'dnd') && newStatus === 'offline') {
+      if (timeSinceOffline) {
+        let offlineTime = Date.now() - timeSinceOffline;		
 messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ] :robot:**`);
 	    } else {
         messageChannel.send({
@@ -360,6 +361,7 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
    })
       } 
     } 
+   }
 });
 
 
