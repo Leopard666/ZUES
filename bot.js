@@ -383,7 +383,6 @@ function displayTime(millis) {
   return result.join(' ');
 }
   });
-}
 // ==================================================================
 
 client.login(process.env.BOT_TOKEN);
