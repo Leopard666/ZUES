@@ -331,8 +331,10 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if (newStatus === 'offline') {
-	    
+    if ((client.user.setStatus) === 'offline') {
+	     if (timeSinceOffline) {
+        let offlineTime = Date.now() - timeSinceOffline;
+		     
 messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ] :robot:**`);
 	    } else {
 		    
@@ -346,7 +348,8 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
             .setTitle('**● :robot: [RINZLER] IS OFFLINE NOW !** ')
 	    .setDescription(`
 
-● Attention **[ THE GRID™ ]** Bot Users **[ RINZLER ]** Has Gone : **[ Offline ] For Now !** 
+● Attention **[ THE GRID™ ]** Bot Users **[ RINZLER ]** Has Gone :
+**[ Offline ]** 
 
 ● If The Bot Has Gone Unexpected Offline, It Could Be 1 Of The Following Errors :
 
@@ -361,6 +364,7 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
    })
       } 
     } 
+  }  
 });
 
 
