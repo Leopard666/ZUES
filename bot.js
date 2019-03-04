@@ -360,6 +360,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
    })
       } 
     }  
+  }   
 });
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
