@@ -64,7 +64,7 @@ client.channels.get("543463470532788274").setName(`「THE G`);
 client.channels.get("543463470532788274").setName(`「THE GR`);
 client.channels.get("543463470532788274").setName(`「THE GRI`);
 client.channels.get("543463470532788274").setName(`「THE GRID`);
-client.channels.get("543463470532788274").setName(`「THE GRID™」`);
+client.channels.get("543463470532788274").setName(`「THE GRID™`);
 client.channels.get("543463470532788274").setName(`「THE GRID`);
 client.channels.get("543463470532788274").setName(`「THE GRI`);
 client.channels.get("543463470532788274").setName(`「THE GR`);
