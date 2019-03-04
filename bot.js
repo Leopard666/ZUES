@@ -338,8 +338,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
       timeSinceOffline = Date.now();
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
-	    .setAuthor(client.user.username,client.user.avatarURL)
-            .setThumbnail(client.user.avatarURL)
             .setColor('dc322f')
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
