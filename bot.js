@@ -333,10 +333,11 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
     if ((oldStatus == 'dnd') && newStatus === 'offline') {
       timeSinceOffline = Date.now();		
-messageChannel.send(`**The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ].**`).then(m => m.delete(60000));
+messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ] :robot:**`);
 	    } else {
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
+	    .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('dc322f')
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
@@ -344,7 +345,7 @@ messageChannel.send(`**The Bot [ ${listenBot} ] is Now Offline - It Has Been Off
             .setTitle('**:robot: [RINZLER] IS OFFLINE NOW :robot:** ')
 	    .setDescription(`
 
-● Attention [THE GRID™] Bot Users [RINZLER] Has Gone : **Offline** ●
+● Attention **[THE GRID™]** Bot Users **[RINZLER]** Has Gone : **Offline** 
 
 ● If The Bot Has Gone Unexpected Offline, It Could Be 1 Of The Following Errors :
 
@@ -353,19 +354,14 @@ messageChannel.send(`**The Bot [ ${listenBot} ] is Now Offline - It Has Been Off
 ● 3. Discord deleted the the bot tokens (owner will fix asap).
 
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
-● In the meantime I have notified ["The Rare Ranger"] that the bot has gone offline.`)    
+
+● In the meantime I have notified **["The Rare Ranger"]** that the bot has gone offline.`)    
 					    
    })
       } 
     } 
 });
 
-client.on('guildMemberUpdate', (oldMember, newMember) => {
-  if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
-    updatePresence(newMember);
-    console.log(`Bot name has changed from ${oldMember.nickname || oldMember.user.username} to ${newMember.nickname || newMember.user.username}!`);
-  }
-});
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
 
