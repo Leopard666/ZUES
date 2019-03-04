@@ -334,9 +334,8 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if ((oldStatus !== 'dnd') && newStatus === 'offline') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;	  
+    if (oldStatus == 'dnd' && newStatus === 'offline') {
+      timeSinceOffline = Date.now();
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
 	    .setAuthor(client.user.username,client.user.avatarURL)
@@ -385,13 +384,6 @@ function displayTime(millis) {
   return result.join(' ');
 }
 
-function updatePresence(member) {
-  listenBotName = member.nickname || member.user.username;
-  client.user.setPresence({
-    game: {
-      name: `${listenBotName}`,
-      type: 'LISTENING'
-    }
   });
 }
 
