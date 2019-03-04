@@ -361,7 +361,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 					    
    })
       } 
-    }  
   }   
 });
 
