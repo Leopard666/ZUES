@@ -306,8 +306,6 @@ client.on('message', message => {
 
 // ==================================================================
 
-let config;
-
 if (!process.env.DISCORD_TOKEN) {
   config = require('./settings.json');
 }
