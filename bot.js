@@ -331,9 +331,8 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if ((oldStatus !== 'dnd') && newStatus === 'offline') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;		
+    if (oldStatus == 'offline' && newStatus === 'offline') {
+       timeSinceOffline = Date.now();
 messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ] :robot:**`);
 	    } else {
         messageChannel.send({
@@ -343,10 +342,10 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
             .setColor('dc322f')
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
-            .setTitle('**:robot: [RINZLER] IS OFFLINE NOW :robot:** ')
+            .setTitle('**● :robot: [RINZLER] IS OFFLINE NOW !** ')
 	    .setDescription(`
 
-● Attention **[THE GRID™]** Bot Users **[RINZLER]** Has Gone : **Offline** 
+● Attention **[ THE GRID™ ]** Bot Users **[ RINZLER ]** Has Gone : **[ Offline ]** 
 
 ● If The Bot Has Gone Unexpected Offline, It Could Be 1 Of The Following Errors :
 
@@ -356,12 +355,11 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
 
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
 
-● In the meantime I have notified **["The Rare Ranger"]** that the bot has gone offline.`)    
+● In the meantime I have notified **[ The Rare Ranger ]** that the bot has gone offline.`)    
 					    
    })
       } 
     } 
-   }
 });
 
 
