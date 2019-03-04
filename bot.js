@@ -378,11 +378,20 @@ function displayTime(millis) {
   for (let i = 0; i < timeArr.length; i+=2) {
     if (timeArr[i] !== 0) {
       result.push(timeArr[i], timeArr[i + 1]);
-  return result.join(' ');
-   }
+     }
   }
- } 
+  return result.join(' ');
+}
+
+function updatePresence(member) {
+  listenBotName = member.nickname || member.user.username;
+  client.user.setPresence({
+    game: {
+      name: `${listenBotName}`,
+      type: 'LISTENING'
+    }
   });
+}
 // ==================================================================
 
 client.login(process.env.BOT_TOKEN);
