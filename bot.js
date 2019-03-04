@@ -331,7 +331,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if ((oldStatus !== 'offline') && newStatus === 'offline') {
+    if ((newStatus !== 'offline') && newStatus === 'offline') {
       if (timeSinceOffline) {
         let offlineTime = Date.now() - timeSinceOffline;	  
         messageChannel.send({
