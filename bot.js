@@ -378,9 +378,9 @@ function displayTime(millis) {
   for (let i = 0; i < timeArr.length; i+=2) {
     if (timeArr[i] !== 0) {
       result.push(timeArr[i], timeArr[i + 1]);
-    }
-  }
   return result.join(' ');
+    }
+  }    
   });
 
 // ==================================================================
