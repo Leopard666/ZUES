@@ -331,13 +331,9 @@ client.on('presenceUpdate', (oldMember, newMember) => {
     let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 
-    if client.user.setStatus === 'offline') {
-	     if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;
-		     
-messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has Been Offline For : [ ${displayTime(offlineTime)} ] :robot:**`);
-	    } else {
-		    
+    if ((oldStatus !== 'offline') && newStatus === 'offline') {
+      if (timeSinceOffline) {
+        let offlineTime = Date.now() - timeSinceOffline;	  
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
 	    .setAuthor(client.user.username,client.user.avatarURL)
@@ -363,8 +359,7 @@ messageChannel.send(`**:robot: The Bot [ ${listenBot} ] is Now Offline - It Has 
 					    
    })
       } 
-    } 
-  }  
+    }  
 });
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
