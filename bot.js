@@ -101,7 +101,27 @@ client.on('guildCreate', guild => {
 
 // ================================================================
 
+ client.on('message', message => {
+    if(message.content === prefix + "shutdown") {
+	    if(!message.channel.guild) return message.reply('**:x: This Command Only For Servers :x:**').then(m => m.delete(60000));    
+            client.channels.get("552138170012008469").send({
+	    embed: new Discord.RichEmbed()
+	    .setAuthor(client.user.username,client.user.avatarURL)
+            .setThumbnail(client.user.avatarURL)
+            .setColor('dc322f')
+	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
+	    .setTimestamp()
+            .setTitle('**● :robot: [ZUES] IS SHUTDOWN NOW BY THE OWNERS !**')
+	    .setDescription(`**⚠️ PLEASE WAIT TILL EVERYTHING SETUP ⚠️**`)
+		    });
+            console.log(`${message.author.tag} [ ${message.author.id} ] ZUES Has ShutDown Successfully.`);
+            setTimeout(() => {
+            client.destroy();
+            },3000);
+}
+});    
 
+// ==================================================================
 
 function timeCon(time) {
     let days = Math.floor(time % 31536000 / 86400)
