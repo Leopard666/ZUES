@@ -355,7 +355,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
       } 
    } 
 }   
-});  
 
     if (oldStatus == 'dnd' && newStatus === 'offline') {
       timeSinceOffline = Date.now();
