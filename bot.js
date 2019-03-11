@@ -365,11 +365,11 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 });  
 
 client.on('presenceUpdate', (oldMember, newMember) => {	
-if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
-let oldStatus = oldMember.presence.status;
- let newStatus = newMember.presence.status;
+  if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
+   let oldStatus = oldMember.presence.status;
+    let newStatus = newMember.presence.status;
 	
-if (oldStatus == 'offline' && newStatus === 'dnd') {
+    if ((oldStatus !== 'offline') && newStatus === 'dnd') {
              timeSinceOffline = Date.now();
              messageChannel.send({
 	     embed: new Discord.RichEmbed()
