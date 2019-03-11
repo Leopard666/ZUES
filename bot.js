@@ -332,7 +332,10 @@ client.on('ready', () => {
 client.on('presenceUpdate', (oldMember, newMember) => {
   if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
     let oldStatus = oldMember.presence.status;
-    let newStatus = newMember.presence.status;	  
+    let newStatus = newMember.presence.status;
+	  
+	  
+	  
     if (oldStatus == 'dnd' && newStatus === 'offline') {
       timeSinceOffline = Date.now();
         messageChannel.send({
@@ -354,10 +357,14 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
 ● I will post a message in this channel once the bot comes back online so keep checking in this channel or check the user list.
 
-● In the meantime I have notified **[ The Rare Ranger ]** that the bot has gone offline.`)    
-					    
-   })	    
-	
+● In the meantime I have notified **[ The Rare Ranger ]** that the bot has gone offline.`)
+		
+   })
+      } 
+  }   
+});  
+
+client.on('presenceUpdate', (oldMember, newMember) => {	
 if ((oldStatus !== 'offline') && newStatus === 'dnd') {
       if (timeSinceOffline) {
         let offlineTime = Date.now() - timeSinceOffline;
@@ -376,10 +383,11 @@ if ((oldStatus !== 'offline') && newStatus === 'dnd') {
 ● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
 		
    })
-});
+      } 
+  }   
+}); 
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
-
 function displayTime(millis) {
   const totalTime = Math.floor(millis / 1000);
   const days = Math.floor(totalTime / 86400);
