@@ -383,7 +383,6 @@ if (oldStatus == 'offline' && newStatus === 'dnd') {
    })
       } 
   }   
-} 
 	
 }); 
 
