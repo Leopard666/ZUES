@@ -353,7 +353,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 		
    })
  
-
     if (oldStatus == 'dnd' && newStatus === 'offline') {
       timeSinceOffline = Date.now();
         messageChannel.send({
@@ -378,6 +377,8 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 ● In the meantime I have notified **[ The Rare Ranger ]** that the bot has gone offline.`)    
 					    
    })
+	    
+	   } 
       } 
   }   
 });
