@@ -340,7 +340,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
       timeSinceOffline = Date.now();
         messageChannel.send({
 	     embed: new Discord.RichEmbed()
-            .setColor('859900')
+            .setColor('dc322f')
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
             .setTitle('**● :robot: [RINZLER] IS OFFLINE NOW !** ')
@@ -367,18 +367,13 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 client.on('presenceUpdate', (oldMember, newMember) => {	
 if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
 let oldStatus = oldMember.presence.status;
- let newStatus = newMember.presence.status;	
-if ((oldStatus !== 'offline') && newStatus === 'dnd') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;
-        messageChannel.send(`THE BOT **[ ${listenBot} ]** IS NOW BACK **(ONLINE)**, AND IT HAS BEEN OFFLINE FOR : **[ ${displayTime(offlineTime)} ]**.`);
-	      
-      } else {
-	      
-        messageChannel.send({
+ let newStatus = newMember.presence.status;
 	
+if (oldStatus == 'offline' && newStatus === 'dnd') {
+             timeSinceOffline = Date.now();
+             messageChannel.send({
 	     embed: new Discord.RichEmbed()
-            .setColor('dc322f')
+            .setColor('859900')
 	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	    .setTimestamp()
             .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
