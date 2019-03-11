@@ -353,7 +353,8 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
    })
       } 
-  }   
+   } 
+}   
 });  
 
     if (oldStatus == 'dnd' && newStatus === 'offline') {
