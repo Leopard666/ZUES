@@ -351,7 +351,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 	    .setDescription(`
 ● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
 		
-}  
    })
  
 
