@@ -361,28 +361,6 @@ client.on('presenceUpdate', (oldMember, newMember) => {
       }  
 });
 
- if ((oldStatus !== 'offline') && newStatus === 'dnd') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;
-        messageChannel.send(`THE BOT **[ ${listenBot} ]** IS NOW BACK **(ONLINE)**, AND IT HAS BEEN OFFLINE FOR : **[ ${displayTime(offlineTime)} ]**.`);
-	      
-      } else {
-	      
-        messageChannel.send({
-	
-	     embed: new Discord.RichEmbed()
-            .setColor('dc322f')
-	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
-	    .setTimestamp()
-            .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
-	    .setDescription(`
-● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
-		
-   })
-	}
-   } 
-});
-
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
 
@@ -412,6 +390,34 @@ function updatePresence(member) {
     }
   });
 }
+
+// ==================================================================
+
+
+ if ((oldStatus !== 'offline') && newStatus === 'dnd') {
+      if (timeSinceOffline) {
+        let offlineTime = Date.now() - timeSinceOffline;
+        messageChannel.send(`THE BOT **[ ${listenBot} ]** IS NOW BACK **(ONLINE)**, AND IT HAS BEEN OFFLINE FOR : **[ ${displayTime(offlineTime)} ]**.`);
+	      
+      } else {
+	      
+        messageChannel.send({
+	
+	     embed: new Discord.RichEmbed()
+            .setColor('dc322f')
+	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
+	    .setTimestamp()
+            .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
+	    .setDescription(`
+● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
+		
+   })
+	}
+   } 
+
+});
+
+
 // ==================================================================
 
 client.login(process.env.BOT_TOKEN);
