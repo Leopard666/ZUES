@@ -365,6 +365,9 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 });  
 
 client.on('presenceUpdate', (oldMember, newMember) => {	
+if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
+let oldStatus = oldMember.presence.status;
+ let newStatus = newMember.presence.status;	
 if ((oldStatus !== 'offline') && newStatus === 'dnd') {
       if (timeSinceOffline) {
         let offlineTime = Date.now() - timeSinceOffline;
@@ -385,6 +388,8 @@ if ((oldStatus !== 'offline') && newStatus === 'dnd') {
    })
       } 
   }   
+} 
+	
 }); 
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
