@@ -369,7 +369,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
    let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 	
-    if (oldStatus == 'offline' && newStatus === 'dnd') {
+    if ((oldStatus !== 'online') && newStatus === 'online') {
              timeSinceOffline = Date.now();
              messageChannel.send({
 	     embed: new Discord.RichEmbed()
