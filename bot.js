@@ -380,7 +380,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 	    .setTimestamp()
             .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
 	    .setDescription(`
-● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
+● Attention **[The Grid™]** Users **[RINZLER]** Has Returned From The Darkness Aka Back **Online** It Must Be Your Lucky Day ! ●`)
 		
    })
       } 
