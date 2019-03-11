@@ -369,7 +369,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
    let oldStatus = oldMember.presence.status;
     let newStatus = newMember.presence.status;
 	
-    if ((oldStatus !== 'offline') && newStatus === 'online') {
+    if (oldStatus == 'offline' && newStatus === 'dnd') {
              timeSinceOffline = Date.now();
              messageChannel.send({
 	     embed: new Discord.RichEmbed()
@@ -405,7 +405,6 @@ function displayTime(millis) {
 }
 
 function updatePresence(member) {
-  client.user.setStatus("online")
   listenBotName = member.nickname || member.user.username;
   client.user.setPresence({
     game: {
