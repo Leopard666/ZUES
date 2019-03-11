@@ -352,7 +352,8 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 ● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
 		
    })
- 
+ });
+		  
     if (oldStatus == 'dnd' && newStatus === 'offline') {
       timeSinceOffline = Date.now();
         messageChannel.send({
