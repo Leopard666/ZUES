@@ -405,6 +405,7 @@ function displayTime(millis) {
 }
 
 function updatePresence(member) {
+  client.user.setStatus("online")
   listenBotName = member.nickname || member.user.username;
   client.user.setPresence({
     game: {
