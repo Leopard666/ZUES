@@ -332,28 +332,7 @@ client.on('ready', () => {
 client.on('presenceUpdate', (oldMember, newMember) => {
   if (oldMember.id === (process.env.BOT_ID || config.listen_bot_id)) {
     let oldStatus = oldMember.presence.status;
-    let newStatus = newMember.presence.status;
-	  
-	  if ((oldStatus !== 'offline') && newStatus === 'dnd') {
-      if (timeSinceOffline) {
-        let offlineTime = Date.now() - timeSinceOffline;
-        messageChannel.send(`THE BOT **[ ${listenBot} ]** IS NOW BACK **(ONLINE)**, AND IT HAS BEEN OFFLINE FOR : **[ ${displayTime(offlineTime)} ]**.`);
-	      
-      } else {
-	      
-        messageChannel.send({
-	
-	     embed: new Discord.RichEmbed()
-            .setColor('dc322f')
-	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
-	    .setTimestamp()
-            .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
-	    .setDescription(`
-● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
-		
-   })
- });
-		  
+    let newStatus = newMember.presence.status;	  
     if (oldStatus == 'dnd' && newStatus === 'offline') {
       timeSinceOffline = Date.now();
         messageChannel.send({
@@ -377,12 +356,33 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 
 ● In the meantime I have notified **[ The Rare Ranger ]** that the bot has gone offline.`)    
 					    
-   })
-	    
+   })	    
 	   } 
-      } 
-  }   
+      }  
 });
+
+ if ((oldStatus !== 'offline') && newStatus === 'dnd') {
+      if (timeSinceOffline) {
+        let offlineTime = Date.now() - timeSinceOffline;
+        messageChannel.send(`THE BOT **[ ${listenBot} ]** IS NOW BACK **(ONLINE)**, AND IT HAS BEEN OFFLINE FOR : **[ ${displayTime(offlineTime)} ]**.`);
+	      
+      } else {
+	      
+        messageChannel.send({
+	
+	     embed: new Discord.RichEmbed()
+            .setColor('dc322f')
+	    .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
+	    .setTimestamp()
+            .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
+	    .setDescription(`
+● Attention [The Grid™] Users [RINZLER] Has Returned From The Darkness Aka Back Online It Must Be Your Lucky Day ! ●`)
+		
+   })
+	}
+   } 
+});
+
 
 client.login(process.env.DISCORD_TOKEN || config.discord_token);
 
