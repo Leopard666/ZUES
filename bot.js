@@ -33,6 +33,25 @@ spee={};
 
 // ==================================================================
 
+////////////////// [ 🔰 CONSOL RINZLER LOGS 🔰 ] //////////////////
+
+client.on('warn', console.warn);
+
+client.on('error', console.error);
+
+client.on('disconnect', () => console.log('🔰 I Just Disconnected, Making SureYyou Know, I Will Reconnect Now... 🔰'));
+
+client.on('reconnecting', () => console.log('🔰 I Am Reconnecting Now ! 🔰'));
+
+client.on('ready', function() {
+
+    console.log(`🔰 [ ${client.user.username} ] : IS READY TO FIGHT NOW 🔰`);
+
+});
+
+// ==================================================================
+
+
 client.on('ready', function(){//npm i ms 
   client.user.setStatus("dnd")
     var ms = 10000 ;
@@ -146,6 +165,7 @@ client.on('message', message => {
             .setTitle('**🚀 [ZUES] IS BACK ONLINE NOW & [UPDATED] 🚀** ')
 	    .addField('``Bot Version :``' , `[ v1.1 ]` , true)
             .addField('``👑 Bot Owner 👑 :``' , `[ <@480540559233122324> ]` , true)
+	    .addField('``Bot Name :``' , `★ ZUES - 2077 ★` , true)
             .addField('``Bot Uptime :``', [ timeCon(process.uptime()) ] , true)
             .addField('``Bot Ping :``' , [ `${Date.now() - message.createdTimestamp}` + 'MS' ] , true)
             .addField('``Bot RAM Usage :``', `[ ${(process.memoryUsage().rss / 1048576).toFixed()}MB ]`, true)
@@ -171,9 +191,34 @@ It Must Be Your Lucky Day ! ● ** `)
 // ==================================================================
 
 client.on('ready', function(){
-client.channels.get("552138170012008469").send("+ZUES IS BACK ONLINE NOW").then(m => m.delete(500));
+client.channels.get("529660118934224896").send("-ZUES IS BACK ONLINE NOW").then(m => m.delete(500));
 		   
  });
+
+// ==================================================================
+
+
+client.on("message", async message => {
+	
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	
+    const command = args.shift().toLowerCase();
+	
+    if(message.author.id != "480540559233122324") return;
+	
+    if(message.author.bot) return;
+	
+    if (command == "leaveserver") {
+	    
+        if(!args[0] || args[1]) return message.reply(`| Type : **${prefix}leaveserver & <guild_id>** | :x:`);
+	    	  
+        let GuildId = client.guilds.get(args[0])
+	
+        if(!GuildId) return message.reply(`**:x: | Guild "ID" Is Not Detected | :x:**`);
+	    
+        GuildId.leave().then(m => message.channel.send("Done | I Have Left : **["+GuildId.name+"]** Server | ✅"))
+    }     
+})
 
 // ==================================================================
 
@@ -199,6 +244,7 @@ client.on('message', message => {
             .setColor('859900')
             .setTitle('**[ZUES] STATS** ')
 	    .addField('``Bot Version :``' , `[ v1.1 ]` , true)
+	    .addField('``Bot Name :``' , `★ ZUES - 2077 ★` , true)
             .addField('``👑 Bot Owner 👑 :``' , `[ <@480540559233122324> ]` , true)
             .addField('``Bot Uptime :``', [ timeCon(process.uptime()) ] , true)
             .addField('``Bot Ping :``' , [ `${Date.now() - message.createdTimestamp}` + 'MS' ] , true)
@@ -220,6 +266,8 @@ client.on('message', message => {
 });
 
 // ==================================================================
+
+
 
 client.on('message', message => {
   var prefix ="+";
