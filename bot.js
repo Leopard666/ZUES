@@ -39,7 +39,7 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('disconnect', () => console.log('🔰 I Just Disconnected, Making SureYyou Know, I Will Reconnect Now... 🔰'));
+client.on('disconnect', () => console.log('🔰 I Just Disconnected, Making Sure You Know, I Will Reconnect Now... 🔰'));
 
 client.on('reconnecting', () => console.log('🔰 I Am Reconnecting Now ! 🔰'));
 
@@ -165,14 +165,14 @@ client.on('message', message => {
             .setTitle('**🚀 [ZUES] IS BACK ONLINE NOW & [UPDATED] 🚀** ')
 	    .addField('``Bot Version :``' , `[ v1.1 ]` , true)
             .addField('``👑 Bot Owner 👑 :``' , `[ <@480540559233122324> ]` , true)
-	    .addField('``Bot Name :``' , `★ ZUES - 2077 ★` , true)
+	    .addField('``Bot Full Name :``' , `★ ZUES - 2077 ★` , true)
             .addField('``Bot Uptime :``', [ timeCon(process.uptime()) ] , true)
             .addField('``Bot Ping :``' , [ `${Date.now() - message.createdTimestamp}` + 'MS' ] , true)
             .addField('``Bot RAM Usage :``', `[ ${(process.memoryUsage().rss / 1048576).toFixed()}MB ]`, true)
-            .addField('``TG - Servers :``', [ client.guilds.size ] , true)
-            .addField('``TG - Channels :``' , `[ ${client.channels.size} ]` , true)
-            .addField('``TG - Users :``' ,`[ ${client.users.size} ]` , true)
-	    .addField('``TG Server Region :``' , `[ Eu - Central ]` , true)
+            .addField('``TG™ - Servers :``', [ client.guilds.size ] , true)
+            .addField('``TG™ - Channels :``' , `[ ${client.channels.size} ]` , true)
+            .addField('``TG™ - Users :``' ,`[ ${client.users.size} ]` , true)
+	    .addField('``TG™ - Server Region :``' , `[ Eu - Central ]` , true)
             .addField('``Bot Name :``' , `[ ${client.user.tag} ]` , true)
             .addField('``Bot ID :``' , `[ ${client.user.id} ]` , true)
             .addField('``Bot Node :``' , `[ ${process.version} ]` , true)
@@ -180,8 +180,8 @@ client.on('message', message => {
                   .addField('``Bot Language :``' , `[ Java Script ]` , true)
                   .setFooter('● 🔰 [ THE GRID™ - OFFICIAL - 2019© ] 🔰 ●')
 	          .setTimestamp()
-	          .setDescription(`**:robot: ● Attention [The Grid™] Users 
-[ZUES] Has Returned From The Darkness Aka Back Online
+	          .setDescription(`**:robot: ● Attention [ THE GRID™ ] Users 
+[ ZUES ] Has Returned From The Darkness Aka Back Online
 It Must Be Your Lucky Day ! ● ** `)
 
     })
@@ -244,15 +244,15 @@ client.on('message', message => {
             .setColor('859900')
             .setTitle('**[ZUES] STATS** ')
 	    .addField('``Bot Version :``' , `[ v1.1 ]` , true)
-	    .addField('``Bot Name :``' , `★ ZUES - 2077 ★` , true)
+	    .addField('``Bot Full Name :``' , `★ ZUES - 2077 ★` , true)
             .addField('``👑 Bot Owner 👑 :``' , `[ <@480540559233122324> ]` , true)
             .addField('``Bot Uptime :``', [ timeCon(process.uptime()) ] , true)
             .addField('``Bot Ping :``' , [ `${Date.now() - message.createdTimestamp}` + 'MS' ] , true)
             .addField('``Bot RAM Usage :``', `[ ${(process.memoryUsage().rss / 1048576).toFixed()}MB ]` , true)
-            .addField('``TG - Servers :``', [ client.guilds.size ], true)
-            .addField('``TG - Channels :``' , `[ ${client.channels.size} ]` , true)
-            .addField('``TG - Users :``' ,`[ ${client.users.size} ]` , true)
-	    .addField('``TG Server Region :``' , `[ Eu - Central ]` , true)
+            .addField('``TG™ - Servers :``', [ client.guilds.size ], true)
+            .addField('``TG™ - Channels :``' , `[ ${client.channels.size} ]` , true)
+            .addField('``TG™ - Users :``' ,`[ ${client.users.size} ]` , true)
+	    .addField('``TG™ - Server Region :``' , `[ Eu - Central ]` , true)
             .addField('``Bot Name :``' , `[ ${client.user.tag} ]` , true)
             .addField('``Bot ID :``' , `[ ${client.user.id} ]` , true)
             .addField('``Bot Node :``' , `[ ${process.version} ]` , true)
@@ -448,7 +448,7 @@ client.on('presenceUpdate', (oldMember, newMember) => {
 	    .setTimestamp()
             .setTitle('**● :robot: [RINZLER] IS BACK ONLINE NOW !** ')
 	    .setDescription(`
-● Attention **[The Grid™]** Users **[RINZLER]** Has Returned From The Darkness Aka Back **Online** It Must Be Your Lucky Day ! ●`)
+● Attention **[ THE GRID™ ]** Users **[ RINZLER ]** Has Returned From The Darkness Aka Back **Online** It Must Be Your Lucky Day ! ●`)
 		
    })
       } 
@@ -479,7 +479,7 @@ function updatePresence(member) {
   client.user.setPresence({
     game: {
       name: `${listenBotName}`,
-      type: 'LISTENING'
+      type: 'LISTENING TO'
     }
   });
 }
